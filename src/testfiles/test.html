@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .container{
+            width: 120%;
+            height: 120%;
+            display: flex;
+            flex-wrap: wrap;
+            background-color: black;
+        }
+        .tile{
+            position: relative;
+            display: inline-block;
+            width: 160px;
+            height: 160px;
+            transform-style: preserve-3d;
+        }
+        .tile > .front{
+            position: absolute;
+            background-color: skyblue;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+        .tile > .back{
+            position: absolute;
+            background-color: gray;
+            width: 100%;
+            height: 100%;
+            transform: rotateY(180deg);
+            backface-visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="tile">
+            <div class="front"></div>
+            <div class="back"></div>
+        </div>
+        <div class="tile">
+            <div class="front"></div>
+            <div class="back"></div>
+        </div>
+        <div class="tile">
+            <div class="front"></div>
+            <div class="back"></div>
+        </div>
+        <div class="tile">
+            <div class="front"></div>
+            <div class="back"></div>
+        </div>
+        <div class="tile">
+            <div class="front"></div>
+            <div class="back"></div>
+        </div>
+        <div class="tile">
+            <div class="front"></div>
+            <div class="back"></div>
+        </div>
+        <div class="tile">
+            <div class="front"></div>
+            <div class="back"></div>
+        </div>
+        <div class="tile">
+            <div class="front"></div>
+            <div class="back"></div>
+        </div>
+        <div class="tile">
+            <div class="front"></div>
+            <div class="back"></div>
+        </div>
+        <div class="tile">
+            <div class="front"></div>
+            <div class="back"></div>
+        </div>
+        <div class="tile">
+            <div class="front"></div>
+            <div class="back"></div>
+        </div>
+        <div class="tile">
+            <div class="front"></div>
+            <div class="back"></div>
+        </div>
+        <div class="tile">
+            <div class="front"></div>
+            <div class="back"></div>
+        </div>
+        <div class="tile">
+            <div class="front"></div>
+            <div class="back"></div>
+        </div>
+        <div class="tile">
+            <div class="front"></div>
+            <div class="back"></div>
+        </div>
+        <div class="tile">
+            <div class="front"></div>
+            <div class="back"></div>
+        </div>
+        <div class="tile">
+            <div class="front"></div>
+            <div class="back"></div>
+        </div>
+        <div class="tile">
+            <div class="front"></div>
+            <div class="back"></div>
+        </div>
+        <div class="tile">
+            <div class="front"></div>
+            <div class="back"></div>
+        </div>
+        <div class="tile">
+            <div class="front"></div>
+            <div class="back"></div>
+        </div>
+        <div class="tile">
+            <div class="front"></div>
+            <div class="back"></div>
+        </div>
+        <div class="tile">
+            <div class="front"></div>
+            <div class="back"></div>
+        </div>
+        <div class="tile">
+            <div class="front"></div>
+            <div class="back"></div>
+        </div>
+        <div class="tile">
+            <div class="front"></div>
+            <div class="back"></div>
+        </div>
+        <div class="tile">
+            <div class="front"></div>
+            <div class="back"></div>
+        </div>
+        <div class="tile">
+            <div class="front"></div>
+            <div class="back"></div>
+        </div>
+        <div class="tile">
+            <div class="front"></div>
+            <div class="back"></div>
+        </div>
+        <div class="tile">
+            <div class="front"></div>
+            <div class="back"></div>
+        </div>
+        <div class="tile">
+            <div class="front"></div>
+            <div class="back"></div>
+        </div>
+        <div class="tile">
+            <div class="front"></div>
+            <div class="back"></div>
+        </div>
+        <div class="tile">
+            <div class="front"></div>
+            <div class="back"></div>
+        </div>
+        <div class="tile">
+            <div class="front"></div>
+            <div class="back"></div>
+        </div>
+        <div class="tile">
+            <div class="front"></div>
+            <div class="back"></div>
+        </div>
+        <div class="tile">
+            <div class="front"></div>
+            <div class="back"></div>
+        </div>
+        <div class="tile">
+            <div class="front"></div>
+            <div class="back"></div>
+        </div>
+        <div class="tile">
+            <div class="front"></div>
+            <div class="back"></div>
+        </div>
+    </div>
+    <button onclick="clickEvent()">클릭</button>
+    <script>
+        const tiles = document.querySelectorAll(".tile");
+        const fronts = document.querySelectorAll(".front")
+        const clickEvent = ()=>{
+            tiles.forEach(
+                (tile)=>{
+                    setTimeout(()=>{
+                        tile.style.transition = "transform 0.25s ease-in";
+                        tile.style.transform = 'rotateY(180deg)';
+                    }, Math.floor(Math.random() * 500))
+                });
+                setTimeout(() => {
+                    fronts.forEach((front)=>{front.style.backgroundColor = "green";});
+                    tiles.forEach((tile)=>{
+                        tile.style.transition = "transform 0.25s ease-out";
+                        tile.style.transform = 'rotateY(360deg)';
+                    });
+                    setTimeout(() => {
+                    tiles.forEach((tile)=>{
+                        tile.style.transition = "transform 0s";
+                        tile.style.transform = 'rotateY(0deg)';
+                    });
+                }, 250);
+            }, 250);
+        }
+    </script>
+</body>
+</html>
