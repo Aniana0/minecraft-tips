@@ -7,7 +7,7 @@ export default function AccountMenu() {
         color : "white"
     }
     return (
-        <div className={`covermenu-container ${isAccountMenuOpen && "active"}`} style={containerStyle}>
+        <div id='account-menu' className={`covermenu-container ${isAccountMenuOpen && "active"}`} style={containerStyle}>
             <ul>
                 <li>테스트</li>
             </ul>
