@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import BackgroundTile from './BackgroundTile'
 import { useSwitchThemeContext } from '../context/SwitchThemeContext';
 
-export default function BackgroundComponent() {
+export default function BackgroundArea() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const [windowHeight, setWindowHeight] = useState(window.innerHeight);
     const [backgroundWidth, setBackgroundWidth] = useState(windowWidth);
@@ -11,12 +11,9 @@ export default function BackgroundComponent() {
     const [tileSize, setTileSize] = useState(0);
     const [widthTileAmount, setWidthTileAmount] = useState(0);
     const [heightTileAmount, setHeightTileAmount] = useState(0);
+    const [tilesProps, setTilesProps] = useState([]);
 
-    const { setFlipTile } = useSwitchThemeContext();
-
-    const test = ()=>{
-        setFlipTile(true);
-    };
+    const { pageTheme , changePageTheme } = useSwitchThemeContext();
 
     const resizeWidthHeight = ()=>{
         setWindowWidth(window.innerWidth);
@@ -33,12 +30,33 @@ export default function BackgroundComponent() {
         setBackgroundHeight(tile * heightTile);
     };
 
+    const test = ()=>{
+        changePageTheme('test');
+    };
+
     const fillWithTile = ()=>{
+        for(let i = 0; i < (widthTileAmount+heightTileAmount-1); i++){
+            tilesProps.push({
+                tileSize: tileSize,
+                bgImg: `./images/tile_${pageTheme}_${tileSize}.png`,
+                newBgImg: '',
+                flipTime: 1000,
+                flipState: false
+            })
+        }
         const elements = [];
         for(let i_h = 0; i_h < heightTileAmount; i_h++){
             for(let i_w = 0; i_w < widthTileAmount; i_w++){
+                const index = i_h + i_w;
                 elements.push(
-                    <BackgroundTile delayTime={100 * (i_h+i_w)} tileSize={tileSize} />
+                    <BackgroundTile
+                        key={`${i_h}_${i_w}`}
+                        tileSize={tilesProps[index].tileSize}
+                        bgImg={tilesProps[index].bgImg}
+                        newBgImg={tilesProps[index].newBgImg}
+                        flipTime={tilesProps[index].flipTime}
+                        flipState={tilesProps[index].flipState}
+                    />
                 );
             }
         }
@@ -64,11 +82,21 @@ export default function BackgroundComponent() {
         }
     }, [windowWidth, windowHeight]);
 
+    useEffect(()=>{
+        tilesProps.forEach((props, index)=>{
+            tilesProps[index] = {...props, newBgImg: `./images/tile_${pageTheme}_${tileSize}.png`, flipState: 'active'};
+            setTilesProps([...tilesProps]);
+        });
+    }, [pageTheme])
+
     const BackgroundContainer = styled.div`
         position: absolute;
         width: 100%;
         height: 100%;
         overflow: hidden;
+        p{
+            color: white;
+        }
         .tile-area{
             z-index: -1;
             position: absolute;
@@ -82,7 +110,6 @@ export default function BackgroundComponent() {
             height: ${backgroundHeight}px;
         }
     `
-
     return (
         <BackgroundContainer>
             <button onClick={test}>클릭</button>

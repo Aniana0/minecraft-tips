@@ -5,15 +5,16 @@ import NavigationBar from "./components/NavigationBar";
 import { AccountMenuContextProvider } from "./context/AccountMenuContext";
 import { UserContextProvider } from "./context/UserContext";
 import GlobalStyle from "./styles/GlobalStyle";
-import BackgroundComponent from "./components/BackgroundComponent";
+import BackgroundArea from "./components/BackgroundArea";
 import { SwitchThemeContextProvider } from "./context/SwitchThemeContext";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <>
       <GlobalStyle />
       <SwitchThemeContextProvider>
-        <BackgroundComponent />
+        <BackgroundArea />
         <UserContextProvider>
           <AccountMenuContextProvider>
             <AccountMenu />
@@ -22,6 +23,7 @@ function App() {
           </AccountMenuContextProvider>
           <Outlet />
         </UserContextProvider>
+        <Footer />
       </SwitchThemeContextProvider>
     </>
   );

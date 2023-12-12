@@ -7,10 +7,10 @@ export function useSwitchThemeContext(){
 }
 
 export function SwitchThemeContextProvider({children}){
-    const [isFlipTile, setIsFlipTile] = useState(false);
-    const setFlipTile = (isFlip)=>{setIsFlipTile(isFlip)};
+    const [pageTheme, setPageTheme] = useState('default');
+    const changePageTheme = (themeKeyword)=>{setPageTheme(themeKeyword)};
     return(
-        <SwitchThemeContext.Provider value={{isFlipTile, setFlipTile}}>
+        <SwitchThemeContext.Provider value={{pageTheme, changePageTheme}}>
             {children}
         </SwitchThemeContext.Provider>
     )

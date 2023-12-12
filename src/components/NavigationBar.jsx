@@ -23,4 +23,23 @@ const MainNavigation = styled.nav`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 48px;
+    background-color: black;
+    .img-button{
+        padding: 0px;
+        margin: 0px 12px;
+        width: 24px;
+        height: 24px;
+        background: none;
+        svg{
+            width: 100%;
+            height: 100%;
+            color: white;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
 `

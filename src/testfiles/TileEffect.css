@@ -1,0 +1,17 @@
+.tileContainer{
+    display: flex;
+    flex-wrap: wrap;
+    gap : 10px;
+    
+  }
+  .tile{
+    width: calc(20% - 10px);
+    flex-shrink: 0;
+    height: 200px;
+    background: black;
+    transition: 500ms;
+    transform-style: preserve-3d;
+  }
+  .tile.flip{
+    transform: rotateY(180deg);
+  }
