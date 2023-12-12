@@ -18,7 +18,7 @@ function App() {
         <UserContextProvider>
           <AccountMenuContextProvider>
             <AccountMenu />
-            <NavigationBar />
+            {/* <NavigationBar /> */}
             <ContentsCover />
           </AccountMenuContextProvider>
           <Outlet />

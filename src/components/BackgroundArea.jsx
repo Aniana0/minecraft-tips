@@ -84,22 +84,19 @@ export default function BackgroundArea() {
 
     useEffect(()=>{
         tilesProps.forEach((props, index)=>{
-            tilesProps[index] = {...props, newBgImg: `./images/tile_${pageTheme}_${tileSize}.png`, flipState: 'active'};
+            tilesProps[index] = {...props, newBgImg: `./images/tile_${pageTheme}_${tileSize}.png`, flipState: true};
             setTilesProps([...tilesProps]);
         });
     }, [pageTheme])
 
     const BackgroundContainer = styled.div`
-        position: absolute;
         width: 100%;
         height: 100%;
-        overflow: hidden;
+        /* overflow: hidden; */
         p{
             color: white;
         }
         .tile-area{
-            z-index: -1;
-            position: absolute;
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
@@ -114,7 +111,7 @@ export default function BackgroundArea() {
         <BackgroundContainer>
             <button onClick={test}>클릭</button>
             <div className="tile-area">
-                {fillWithTile()}
+                <BackgroundTile />
             </div>
         </BackgroundContainer>
     )
