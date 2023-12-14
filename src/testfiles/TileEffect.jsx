@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Tile from './Tile';
 import './TileEffect.css'
+import BackgroundTile from '../components/BackgroundTile';
 
 function TileEffect() {
     const [tile, setTile] = useState(Array(20).fill(false))
@@ -27,7 +28,7 @@ function TileEffect() {
     return (
         <div className='tileContainer'>
             {tile.map((flip, index) => (
-                <Tile key={index} flip={flip} />
+                <BackgroundTile key={index} flip={flip} size={240} />
             ))}
         </div>
     )

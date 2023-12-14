@@ -6,25 +6,25 @@ import { AccountMenuContextProvider } from "./context/AccountMenuContext";
 import { UserContextProvider } from "./context/UserContext";
 import GlobalStyle from "./styles/GlobalStyle";
 import BackgroundArea from "./components/BackgroundArea";
-import { SwitchThemeContextProvider } from "./context/SwitchThemeContext";
+import { PageThemeContextProvider } from "./context/PageThemeContext";
 import Footer from "./components/Footer";
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      <SwitchThemeContextProvider>
+      <PageThemeContextProvider>
         <BackgroundArea />
         <UserContextProvider>
           <AccountMenuContextProvider>
             <AccountMenu />
-            {/* <NavigationBar /> */}
+            <NavigationBar />
             <ContentsCover />
           </AccountMenuContextProvider>
           <Outlet />
         </UserContextProvider>
         <Footer />
-      </SwitchThemeContextProvider>
+      </PageThemeContextProvider>
     </>
   );
 }

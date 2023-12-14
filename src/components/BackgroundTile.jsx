@@ -2,23 +2,31 @@ import React from 'react'
 import styled from 'styled-components'
 
 
-export default function BackgroundTile(props) {
+export default function BackgroundTile({flip, size, bgImg, newBgImg}) {
+  const style = {
+    width: `${size}px`,
+    height: `${size}px`
+  };
+  const frontSideStyle = {
+    backgroundImage : `url(${bgImg})`
+  };
+  const backSideStyle = {
+    backgroundImage : `url(${newBgImg})`
+  };
   return (
-    <Tile className={flipState && 'active'}>
-      <div className="side front-side"></div>
-      <div className="side back-side"></div>
+    <Tile className={(flip) && 'active'} style={style}>
+      <div className="side front-side" style={frontSideStyle}></div>
+      <div className="side back-side" style={backSideStyle}></div>
     </Tile>
   )
 }
   const Tile = styled.div`
-    width: 240px;
-    height: 240px;
     position: relative;
     transform-style: preserve-3d;
-    transition: transform 1000ms;
     transform: rotateY(0deg);
     &.active{
       transform: rotateY(180deg);
+      transition: transform 1000ms;
     }
     .side{
       position: absolute;
