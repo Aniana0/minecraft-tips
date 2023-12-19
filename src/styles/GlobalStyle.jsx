@@ -2,11 +2,26 @@ import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
     /* reset */
-    html,body,ul{
+    html,body,ul, p{
+        position: relative;
         padding: 0;
         margin: 0;
         box-sizing: border-box;
     }
+    html, body{
+        width: 100%;
+        height: 100%;
+    }
+
+    #root {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
     a{
         text-decoration: none;
         color: inherit;
@@ -16,6 +31,13 @@ const GlobalStyle = createGlobalStyle`
         border: none;
         border-radius: none;
     }
+    .position-fixer{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
     /* AccountMenu & TipMenu */
     .covermenu-container{
         position: fixed;
@@ -23,24 +45,15 @@ const GlobalStyle = createGlobalStyle`
         top: 0;
         width: 500px;
         height: 100%;
-        z-index: 1000;
+        z-index: 1100;
     }
     .covermenu-container.active{
         visibility: visible;
     }
-    #account-menu{
-        right: -500px;
-        transition: right 200ms;
-    }
-    #account-menu.active{
-        right: 0;
-    }
+
     @media not screen and (min-width: 600px) {
         .covermenu-container{
             width: 100%;
-        }
-        #account-menu{
-            right: -100%;
         }
     }
 `;

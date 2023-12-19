@@ -16,7 +16,7 @@ export default function BackgroundTile({flip, size, bgImg, newBgImg}) {
     backgroundImage : `url(${newBgImg})`
   };
   return (
-    <Tile className={(flip) && 'active'} style={style} time={themeChangeDelay}>
+    <Tile className={(flip) && 'active'} style={style} $time={themeChangeDelay}>
       <div className="side front-side" style={frontSideStyle}></div>
       <div className="side back-side" style={backSideStyle}></div>
     </Tile>
@@ -28,7 +28,7 @@ const Tile = styled.div`
   transform: rotateY(0deg);
   &.active{
     transform: rotateY(180deg);
-    transition: transform ${props => props.time}ms ease-in-out;
+    transition: transform ${props => props.$time}ms ease-in-out;
   }
   .side{
     position: absolute;

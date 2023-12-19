@@ -21,6 +21,7 @@ const Cover = styled.div`
     opacity: 0;
     visibility: collapse;
     transition: opacity 200ms ease-in-out, visibility 200ms;
+    overflow: hidden;
     z-index: 1000;
     &.active{
         opacity: 1;

@@ -1,10 +1,11 @@
 import React from 'react'
-import NavigationBar from '../components/NavigationBar'
+import PageFrame from '../components/PageFrame'
+import Categories from '../components/Categories'
 
 export default function SelectTips() {
     return (
         <>
-            <p>아아아아</p>
+            <Categories/>
         </>
     )
 }

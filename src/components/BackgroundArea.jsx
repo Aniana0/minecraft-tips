@@ -27,11 +27,11 @@ export default function BackgroundArea() {
     // 타일 사이즈 설정 함수
     const resizeTile = useCallback(()=>{
         if(1024 <= window.innerWidth){
-            setTileSize(240);
-        }else if(768 <= window.innerWidth){
             setTileSize(160);
-        }else if(480 <= window.innerWidth){
+        }else if(768 <= window.innerWidth){
             setTileSize(120);
+        }else if(480 <= window.innerWidth){
+            setTileSize(80);
         }else{
             setTileSize(80);
         }
@@ -138,6 +138,8 @@ export default function BackgroundArea() {
 
 const BackgroundContainer = styled.div`
     position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     z-index: -1;
