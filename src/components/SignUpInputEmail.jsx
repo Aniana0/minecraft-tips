@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { signupWithEmail } from '../api/firebase'
 
 export default function SignUpInputEmail() {

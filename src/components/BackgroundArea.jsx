@@ -5,10 +5,10 @@ import { usePageThemeContext } from '../context/PageThemeContext';
 
 export default function BackgroundArea() {
     // 타일 별 시간차
-    const tileDelayTime = 100;
+    const tileDelayTime = 25;
 
     // 페이지 별 테마 관련 변수들
-    const { pageTheme, themeChangeDelay } = usePageThemeContext();
+    const { pageTheme, setThemeChangeState, themeChangeDelay } = usePageThemeContext();
     
     const [frontTileTheme, setFrontTileTheme] = useState(pageTheme);
     const [backTileTheme, setBackTileTheme] = useState(pageTheme);
@@ -115,6 +115,7 @@ export default function BackgroundArea() {
             setTimeout(() => {
                 setFrontTileTheme(pageTheme);
                 flipReset();
+                setThemeChangeState(true);
             }, themeChangeDelay);
         }
     }, [tileFlipHandlers, pageTheme, themeChangeDelay, flipReset])

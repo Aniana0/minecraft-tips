@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
-import SignUpInputEmail from '../components/SignUpInputEmail'
+import TipCategories from '../components/TipCategories'
 import { styled } from 'styled-components';
 import WaitBackground from '../components/WaitBackground';
 
-export default function SignUp() {
-  const theme = "white";
+export default function SelectTipMenu() {
+  const theme = "default";
   const [ isActive, setIsActive ] = useState(false);
   
   return (
     <WaitBackground theme={theme} setActive={setIsActive}>
       <Container className={isActive && 'active'}>
-        <SignUpInputEmail />
+        <TipCategories/>
       </Container>
     </WaitBackground>
   )

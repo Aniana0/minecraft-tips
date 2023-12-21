@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getDatabase, ref, set } from 'firebase/database'
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -20,6 +21,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
+const database = getDatabase(app);
 
 
 // Sign in
@@ -28,6 +30,16 @@ export async function signupWithEmail(email, password){
     const userCredit = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredit.user;
     return user;
+  }catch(err){
+    console.error(err);
+  }
+}
+
+// Log in
+export async function loginWithEmail(email, password){
+  try{
+    const userCredit = await signInWithEmailAndPassword(auth, email, password);
+    return userCredit.user;
   }catch(err){
     console.error(err);
   }

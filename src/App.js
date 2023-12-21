@@ -8,6 +8,7 @@ import GlobalStyle from "./styles/GlobalStyle";
 import BackgroundArea from "./components/BackgroundArea";
 import { PageThemeContextProvider } from "./context/PageThemeContext";
 import Footer from "./components/Footer";
+import PageContainer from "./components/PageContainer";
 
 function App() {
   return (
@@ -17,13 +18,13 @@ function App() {
         <BackgroundArea />
         <UserContextProvider>
           <AccountMenuContextProvider>
-            <AccountMenu />
             <NavigationBar />
+            <AccountMenu />
             <ContentsCover />
-            <div className="page-container">
-              <Outlet />
-            </div>
           </AccountMenuContextProvider>
+          <PageContainer>
+            <Outlet />
+          </PageContainer>
         </UserContextProvider>
         <Footer />
       </PageThemeContextProvider>

@@ -5,7 +5,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import SignUp from './pages/SignUp';
-import SelectTips from './pages/SelectTips';
+import SelectTipMenu from './pages/SelectTipMenu';
+import NotFound from './pages/NotFound';
+import LogIn from './pages/LogIn';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -13,14 +15,19 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <NotFound />,
     children: [
       {
         path: "/",
-        element: <SelectTips />
+        element: <SelectTipMenu />
       },
       {
         path: "/signup",
         element: <SignUp />
+      },
+      {
+        path: "/login",
+        element: <LogIn />
       }
     ]
   }

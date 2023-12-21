@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { styled } from 'styled-components'
 
-export default function CategoryButton({ link, img, title }) {
+export default function TipCategoryButton({ link, img, title }) {
   return (
     <Link to={link}>
       <CategoryContainer>
