@@ -7,8 +7,9 @@ export function usePageThemeContext(){
 }
 
 export function PageThemeContextProvider({children}){
+    const startTheme = sessionStorage.getItem("pageTheme") ? sessionStorage.getItem("pageTheme") : "default";
     // 페이지 별 테마
-    const [ pageTheme, setPageTheme ] = useState(localStorage.getItem("pageTheme"));
+    const [ pageTheme, setPageTheme ] = useState(startTheme);
     const changePageTheme = (themeKeyword)=>{setPageTheme(themeKeyword)};
     const [ isThemeChangeDone, setIsThemeChangeDone ] = useState(false);
     const setThemeChangeState = (state)=>{setIsThemeChangeDone(state)};
@@ -17,7 +18,7 @@ export function PageThemeContextProvider({children}){
     const themeChangeDelay = 300; // ms
 
     useEffect(()=>{
-        localStorage.setItem("pageTheme", pageTheme);
+        sessionStorage.setItem("pageTheme", pageTheme);
     }, [pageTheme])
 
     return(

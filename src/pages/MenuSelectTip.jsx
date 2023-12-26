@@ -1,18 +1,18 @@
 import React, { useState } from 'react'
-import TipCategories from '../components/TipCategories'
+import TipCategoryBox from '../components/TipCategoryBox'
 import { styled } from 'styled-components';
-import WaitBackground from '../components/WaitBackground';
+import BackgroundWait from '../components/BackgroundWait';
 
-export default function SelectTipMenu() {
+export default function MenuSelectTip() {
   const theme = "default";
   const [ isActive, setIsActive ] = useState(false);
   
   return (
-    <WaitBackground theme={theme} setActive={setIsActive}>
+    <BackgroundWait theme={theme} setActive={setIsActive}>
       <Container className={isActive && 'active'}>
-        <TipCategories/>
+        <TipCategoryBox/>
       </Container>
-    </WaitBackground>
+    </BackgroundWait>
   )
 }
 

@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import ThemeChangeTestButton from '../testfiles/ThemeChangeTestButton'
 import { usePageThemeContext } from '../context/PageThemeContext'
 
 export default function PageFrame({children}) {
@@ -10,7 +9,6 @@ export default function PageFrame({children}) {
         <PageContainer className={pageTheme === 'test' ? 'active' : ''}>
             <div className="position-fixer">
                 {children}
-                <ThemeChangeTestButton/>
             </div>
         </PageContainer>
     )

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { useAccountMenuContext } from '../context/AccountMenuContext';
 
-export default function ContentsCover() {
+export default function CoverAll() {
     const { isAccountMenuOpen, setAccountMenuOpen } = useAccountMenuContext();
     const closeAllMenu = async ()=>{
         setAccountMenuOpen(false);

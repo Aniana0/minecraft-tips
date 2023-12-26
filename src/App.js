@@ -1,11 +1,11 @@
 import { Outlet } from "react-router-dom";
 import AccountMenu from "./components/AccountMenu";
-import ContentsCover from "./components/ContentsCover";
+import CoverAll from "./components/CoverAll";
 import NavigationBar from "./components/NavigationBar";
 import { AccountMenuContextProvider } from "./context/AccountMenuContext";
 import { UserContextProvider } from "./context/UserContext";
 import GlobalStyle from "./styles/GlobalStyle";
-import BackgroundArea from "./components/BackgroundArea";
+import BackgroundTileContainer from "./components/BackgroundTileContainer";
 import { PageThemeContextProvider } from "./context/PageThemeContext";
 import Footer from "./components/Footer";
 import PageContainer from "./components/PageContainer";
@@ -15,12 +15,12 @@ function App() {
     <>
       <GlobalStyle />
       <PageThemeContextProvider>
-        <BackgroundArea />
+        <BackgroundTileContainer />
         <UserContextProvider>
           <AccountMenuContextProvider>
             <NavigationBar />
             <AccountMenu />
-            <ContentsCover />
+            <CoverAll />
           </AccountMenuContextProvider>
           <PageContainer>
             <Outlet />

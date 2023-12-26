@@ -5,9 +5,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import SignUp from './pages/SignUp';
-import SelectTipMenu from './pages/SelectTipMenu';
+import MenuSelectTip from './pages/MenuSelectTip';
 import NotFound from './pages/NotFound';
 import LogIn from './pages/LogIn';
+import TipOreYLabel from './pages/TipOreYLabel';
+import MenuAccountState from './pages/MenuAccountState';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -19,7 +21,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <SelectTipMenu />
+        element: <MenuSelectTip />
       },
       {
         path: "/signup",
@@ -28,6 +30,14 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <LogIn />
+      },
+      {
+        path: "/account",
+        element: <MenuAccountState />
+      },
+      {
+        path: "/ore_y_level",
+        element: <TipOreYLabel />
       }
     ]
   }

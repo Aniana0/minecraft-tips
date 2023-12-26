@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import { getDatabase, ref, set } from 'firebase/database'
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -23,6 +23,22 @@ const analytics = getAnalytics(app);
 const auth = getAuth(app);
 const database = getDatabase(app);
 
+// 로그인 정보 유지
+export function onUserState(callback){
+  onAuthStateChanged(auth, async(user)=>{
+    try{
+      if(user){
+        localStorage.setItem("user", user)
+        callback(user);
+      }else{
+        localStorage.removeItem("user")
+        callback(null);
+      }
+    }catch(err){
+      console.log(err);
+    }
+  })
+};
 
 // Sign in
 export async function signupWithEmail(email, password){
@@ -33,13 +49,31 @@ export async function signupWithEmail(email, password){
   }catch(err){
     console.error(err);
   }
-}
+};
 
 // Log in
 export async function loginWithEmail(email, password){
   try{
     const userCredit = await signInWithEmailAndPassword(auth, email, password);
     return userCredit.user;
+  }catch(err){
+    console.error(err);
+  }
+};
+
+// Log out
+export async function logout(){
+  try{
+    await signOut(auth);
+  }catch(err){
+    console.error(err);
+  }
+};
+
+// Update profile
+export async function updateUserProfile(setting_values){
+  try{
+    await updateProfile(auth.currentUser, setting_values);
   }catch(err){
     console.error(err);
   }

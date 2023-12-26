@@ -2,10 +2,10 @@ import React from 'react'
 import TipCategoryButton from './TipCategoryButton'
 import { styled } from 'styled-components'
 
-export default function TipCategories() {
+export default function TipCategoryBox() {
   return (
     <SelectCategoryContainer>
-      <TipCategoryButton link={"/signup"} img={"./images/testButtonImg.png"} title={"test"} />
+      <TipCategoryButton link={"/ore_y_level"} img={"./images/testButtonImg.png"} title={"test"} />
       <TipCategoryButton link={"/"} img={"./images/testButtonImg.png"} title={"test"} />
       <TipCategoryButton link={"/"} img={"./images/testButtonImg.png"} title={"test"} />
       <TipCategoryButton link={"/"} img={"./images/testButtonImg.png"} title={"test"} />

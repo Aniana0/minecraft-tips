@@ -1,22 +1,26 @@
 import { styled } from 'styled-components';
 import { useAccountMenuContext } from '../context/AccountMenuContext'
 import { Link } from 'react-router-dom';
+import { useUserContext } from '../context/UserContext';
 
 export default function AccountMenu() {
+    const { user } = useUserContext();
     const { isAccountMenuOpen, setAccountMenuOpen } = useAccountMenuContext();
     const closeMenu = async ()=>{
         setAccountMenuOpen(false);        
     };
     return (
         <AccountMenuContainer className={`covermenu-container ${isAccountMenuOpen && "active"}`}>
-            <ul>
-                <li>
-                    <Link to={"signup"} onClick={closeMenu}>계정등록</Link>
-                </li>
-                <li>
-                    <Link to={"login"}>로그인</Link>
-                </li>
-            </ul>
+            {user && ( 
+                <ul>
+                    <li>
+                        <Link to={"/account"} onClick={closeMenu}>계정정보</Link>
+                    </li>
+                    <li>
+                        <Link to={"/edit_account"} onClick={closeMenu}>정보수정</Link>
+                    </li>
+                </ul>
+            )}
         </AccountMenuContainer>
     )
 }

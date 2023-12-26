@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { usePageThemeContext } from '../context/PageThemeContext';
 
-export default function WaitBackground({setActive, theme, children}) {
+export default function BackgroundWait({setActive, theme, children}) {
   const { pageTheme, changePageTheme, isThemeChangeDone, setThemeChangeState } = usePageThemeContext();
   const [ isActive, setIsActive ] = useState(false);
 

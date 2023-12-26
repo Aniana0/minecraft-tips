@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import BackgroundTile from './BackgroundTile'
 import { usePageThemeContext } from '../context/PageThemeContext';
 
-export default function BackgroundArea() {
+export default function BackgroundTileContainer() {
     // 타일 별 시간차
     const tileDelayTime = 25;
 
@@ -150,10 +150,10 @@ const BackgroundContainer = styled.div`
         flex-wrap: wrap;
         position: absolute;
         left: 50%;
-        top: 0;
+        top: 50%;
         width: 100%;
         height: 100%;
-        transform: translateX(-50%);
+        transform: translate(-50%,-50%);
         background-color: #1E1E1E;
     }
 `

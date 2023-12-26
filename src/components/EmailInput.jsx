@@ -1,27 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { styled } from 'styled-components';
 
-export default function EmailInput({id, setEmail, setErrorMsg}) {
+export default function InputEmail({id, setEmail}) {
   const onChangeEvent = (e)=>{
-    setErrorMsg("");
-    if(timer){
-      clearTimeout();
-    }else{
-      timer = setTimeout(() => {
-        setEmail(e.target.value);
-      }, 500);
-    }
+    setEmail(e.target.value);
   };
-  
-  let timer;
 
   return (
-    <>
-      <input
+    <EmailInputStyle
       type="email"
       name={id} id={id}
       placeholder='E-Mail / 이메일'
       onChange={onChangeEvent}
-      />  
-    </>
+    />
   )
 }
+const EmailInputStyle = styled.input`
+`

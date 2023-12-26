@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { signupWithEmail } from '../api/firebase'
 
-export default function SignUpInputEmail() {
+export default function SignUpBox() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
