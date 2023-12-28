@@ -8,7 +8,7 @@ export function useUserContext(){
 }
 
 export function UserContextProvider({children}){
-    const [user, setUser] = useState(localStorage.getItem("user"));
+    const [user, setUser] = useState(sessionStorage.getItem("user"));
     const setLoginUser = (inputUser)=>{setUser(inputUser)};
 
     useEffect(()=>{

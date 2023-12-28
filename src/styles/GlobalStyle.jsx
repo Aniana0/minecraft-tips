@@ -31,12 +31,6 @@ const GlobalStyle = createGlobalStyle`
         border: none;
         border-radius: none;
     }
-    .position-fixer {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-    }
 
     /* AccountMenu & TipMenu */
     .covermenu-container {

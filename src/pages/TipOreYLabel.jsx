@@ -15,6 +15,8 @@ export default function TipOreYLabel() {
 }
 const Container = styled.div`
   visibility: collapse;
+  width: 1280px;
+  height: calc(100% - 48px);
   &.active {
     visibility: visible;
   }

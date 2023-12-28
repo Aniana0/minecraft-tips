@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
-import { getDatabase, ref, set } from 'firebase/database'
+import { getDatabase } from 'firebase/database'
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -28,10 +28,10 @@ export function onUserState(callback){
   onAuthStateChanged(auth, async(user)=>{
     try{
       if(user){
-        localStorage.setItem("user", user)
+        sessionStorage.setItem("user", user)
         callback(user);
       }else{
-        localStorage.removeItem("user")
+        sessionStorage.removeItem("user")
         callback(null);
       }
     }catch(err){
